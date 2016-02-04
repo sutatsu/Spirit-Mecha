@@ -17,11 +17,11 @@ public class KataiScript : MonoBehaviour {
 	public float energyGeneration;
 
 	//weapons with which to do things
-	public Weapon WeaponMainArm;
-	public Weapon WeaponSupportArm;
-	public Weapon WeaponShoulder;
-	public Weapon WeaponBack;
-	private List<Weapon> weaponsList;
+	public WeaponClass WeaponMainArm;
+	public WeaponClass WeaponSupportArm;
+	public WeaponClass WeaponShoulder;
+	public WeaponClass WeaponBack;
+	private List<WeaponClass> weaponsList;
 
 
 	// Use this for initialization

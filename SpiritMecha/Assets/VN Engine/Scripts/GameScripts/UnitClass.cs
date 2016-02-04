@@ -13,11 +13,11 @@ public class UnitClass {
 	private float ammoStorage { get; set; }
 	private float energyGeneration {get; set; }
 
-	private List<Weapon> weaponsList;
+	private List<WeaponClass> weaponsList;
 
 	public UnitClass(float health, float damageThreshold, float damageResist, 
 		float moveSpeed, float weight, float ammoStorage, float energyGeneration,
-		List<Weapon> weapons)
+		List<WeaponClass> weapons)
 	{
 		this.health = health;
 		this.damageThreshold = damageThreshold;
@@ -56,7 +56,7 @@ public class UnitClass {
 	}
 
 	//Receive bonuses to stats from weapons (health, damageResist, etc)
-	void updateFromWeapons(){
+	void updateStatsFromWeapons(){
 
 
 

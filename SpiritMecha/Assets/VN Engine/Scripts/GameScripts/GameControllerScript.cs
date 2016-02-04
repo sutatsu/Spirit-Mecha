@@ -20,6 +20,9 @@ public class GameControllerScript : MonoBehaviour {
 	public CountdownTimer ButtonShoulder;
 	public CountdownTimer ButtonBack;
 
+	public UnitClass Katai;
+	public UnitClass Enemy;
+
 
 	// Use this for initialization
 	void Start () {
@@ -33,6 +36,7 @@ public class GameControllerScript : MonoBehaviour {
 
 
 	//Receive input from four visual weapon buttons and do things.
+	//Check if it can fire before sending signal to fire.
 	void inputMainArm(){
 		ButtonMainArm.setTimer (1);
 	}
