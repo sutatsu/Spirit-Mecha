@@ -7,6 +7,7 @@ public class CountdownTimer : MonoBehaviour {
 	private float timer = 0f;
 	private Animator anim;
 	private Text number;
+	private bool triggered = false;
 
 	private Animator barFillAnim;
 	private float barFillSpeed; //multiples of 1, if want 15 sec do 1/15
@@ -28,6 +29,7 @@ public class CountdownTimer : MonoBehaviour {
 		timer -= Time.deltaTime;
 		number.text = Mathf.Round(timer).ToString();
 
+		//If there is no time on the timer
 		if (timer <= 0) {
 			timer = 0;
 			//trigger animation to fade?
@@ -35,7 +37,11 @@ public class CountdownTimer : MonoBehaviour {
 			anim.SetTrigger("Hide");
 
 			barFillAnim.ResetTrigger ("StartCooldown");
+
+			//set triggered to allow changes now that it is complete
+			triggered = false;
 		}
+		//if there is time on the timer
 		else {
 			//trigger animation to appear
 			anim.ResetTrigger("Hide");
@@ -44,14 +50,21 @@ public class CountdownTimer : MonoBehaviour {
 			//trigger bar to appear
 			barFillAnim.SetTrigger("StartCooldown");
 			barFillAnim.SetFloat ("barFillSpeed", barFillSpeed);
-			
+
+			//set triggered to prevent changes until complete
+			triggered = true;
 		}
 	
 	}
 
 	public void setTimer(float time){
-		timer = time;
-		barFillSpeed = 1f / time;
+		if (!triggered) {
+			timer = time;
+			barFillSpeed = 1f / time;
+		}
 	}
 
+	public bool isTriggered(){
+		return triggered;
+	}
 }

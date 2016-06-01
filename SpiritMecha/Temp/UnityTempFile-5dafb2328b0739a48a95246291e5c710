@@ -1,0 +1,143 @@
+-debug
+-target:library
+-nowarn:0169
+-out:Temp/Assembly-CSharp.dll
+-r:"C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll"
+-r:"C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll"
+-r:"C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll"
+-r:"C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Common.dll"
+-define:UNITY_5_3_OR_NEWER
+-define:UNITY_5_3_4
+-define:UNITY_5_3
+-define:UNITY_5
+-define:ENABLE_NEW_BUGREPORTER
+-define:ENABLE_AUDIO
+-define:ENABLE_CACHING
+-define:ENABLE_CLOTH
+-define:ENABLE_DUCK_TYPING
+-define:ENABLE_FRAME_DEBUGGER
+-define:ENABLE_GENERICS
+-define:ENABLE_HOME_SCREEN
+-define:ENABLE_IMAGEEFFECTS
+-define:ENABLE_LIGHT_PROBES_LEGACY
+-define:ENABLE_MICROPHONE
+-define:ENABLE_MULTIPLE_DISPLAYS
+-define:ENABLE_PHYSICS
+-define:ENABLE_PLUGIN_INSPECTOR
+-define:ENABLE_SHADOWS
+-define:ENABLE_SINGLE_INSTANCE_BUILD_SETTING
+-define:ENABLE_SPRITERENDERER_FLIPPING
+-define:ENABLE_SPRITES
+-define:ENABLE_SPRITE_POLYGON
+-define:ENABLE_TERRAIN
+-define:ENABLE_RAKNET
+-define:ENABLE_UNET
+-define:ENABLE_UNITYEVENTS
+-define:ENABLE_VR
+-define:ENABLE_WEBCAM
+-define:ENABLE_WWW
+-define:ENABLE_CLOUD_SERVICES
+-define:ENABLE_CLOUD_SERVICES_ADS
+-define:ENABLE_CLOUD_HUB
+-define:ENABLE_CLOUD_PROJECT_ID
+-define:ENABLE_CLOUD_SERVICES_PURCHASING
+-define:ENABLE_CLOUD_SERVICES_ANALYTICS
+-define:ENABLE_CLOUD_SERVICES_UNET
+-define:ENABLE_CLOUD_SERVICES_BUILD
+-define:ENABLE_CLOUD_LICENSE
+-define:ENABLE_EDITOR_METRICS
+-define:ENABLE_EDITOR_METRICS_CACHING
+-define:INCLUDE_DYNAMIC_GI
+-define:INCLUDE_GI
+-define:INCLUDE_IL2CPP
+-define:INCLUDE_DIRECTX12
+-define:PLATFORM_SUPPORTS_MONO
+-define:RENDER_SOFTWARE_CURSOR
+-define:ENABLE_LOCALIZATION
+-define:ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION
+-define:ENABLE_EDITOR_TESTS_RUNNER
+-define:UNITY_STANDALONE_WIN
+-define:UNITY_STANDALONE
+-define:ENABLE_SUBSTANCE
+-define:ENABLE_TEXTUREID_MAP
+-define:ENABLE_RUNTIME_GI
+-define:ENABLE_MOVIES
+-define:ENABLE_NETWORK
+-define:ENABLE_CRUNCH_TEXTURE_COMPRESSION
+-define:ENABLE_LOG_MIXED_STACKTRACE
+-define:ENABLE_UNITYWEBREQUEST
+-define:ENABLE_EVENT_QUEUE
+-define:ENABLE_CLUSTERINPUT
+-define:ENABLE_WEBSOCKET_HOST
+-define:ENABLE_MONO
+-define:ENABLE_PROFILER
+-define:DEBUG
+-define:TRACE
+-define:UNITY_ASSERTIONS
+-define:UNITY_EDITOR
+-define:UNITY_EDITOR_64
+-define:UNITY_EDITOR_WIN
+Assets/HealthShardMod.cs
+Assets/MatchKataiSpriteTransform.cs
+Assets/NewAudioManager.cs
+Assets/RemoveAfterTime.cs
+Assets/UpdateTextToVariable.cs
+Assets/UpdateVariableOfText.cs
+"Assets/VN Engine/Scripts/Actor.cs"
+"Assets/VN Engine/Scripts/ActorManager.cs"
+"Assets/VN Engine/Scripts/AudioManager.cs"
+"Assets/VN Engine/Scripts/Autoplay.cs"
+"Assets/VN Engine/Scripts/ChoicesManager.cs"
+"Assets/VN Engine/Scripts/ConversationManager.cs"
+"Assets/VN Engine/Scripts/DestroyAfterPlayingSound.cs"
+"Assets/VN Engine/Scripts/EnableIfKeyPressed.cs"
+"Assets/VN Engine/Scripts/FadeObjectInOut.cs"
+"Assets/VN Engine/Scripts/GameScripts/CountdownTimer.cs"
+"Assets/VN Engine/Scripts/GameScripts/GameControllerScript.cs"
+"Assets/VN Engine/Scripts/GameScripts/KataiClass.cs"
+"Assets/VN Engine/Scripts/GameScripts/KataiScript.cs"
+"Assets/VN Engine/Scripts/GameScripts/TestTankClass.cs"
+"Assets/VN Engine/Scripts/GameScripts/TestTankScript.cs"
+"Assets/VN Engine/Scripts/GameScripts/UnitClass.cs"
+"Assets/VN Engine/Scripts/GameScripts/Weapon.cs"
+"Assets/VN Engine/Scripts/GameScripts/WeaponClass.cs"
+"Assets/VN Engine/Scripts/Nodes/BrightenActorNode.cs"
+"Assets/VN Engine/Scripts/Nodes/BrightenAllActorsNode.cs"
+"Assets/VN Engine/Scripts/Nodes/BringActorBackwardNode.cs"
+"Assets/VN Engine/Scripts/Nodes/BringActorForwardNode.cs"
+"Assets/VN Engine/Scripts/Nodes/ChangeActorImageNode.cs"
+"Assets/VN Engine/Scripts/Nodes/ChangeConversationNode.cs"
+"Assets/VN Engine/Scripts/Nodes/ChoiceNode.cs"
+"Assets/VN Engine/Scripts/Nodes/ClearTextNode.cs"
+"Assets/VN Engine/Scripts/Nodes/DarkenActorNode.cs"
+"Assets/VN Engine/Scripts/Nodes/DarkenAllActorsNode.cs"
+"Assets/VN Engine/Scripts/Nodes/DialogueNode.cs"
+"Assets/VN Engine/Scripts/Nodes/DisableBackgroundNode.cs"
+"Assets/VN Engine/Scripts/Nodes/DisableForegroundNode.cs"
+"Assets/VN Engine/Scripts/Nodes/EnterActorNode.cs"
+"Assets/VN Engine/Scripts/Nodes/ExitActorNode.cs"
+"Assets/VN Engine/Scripts/Nodes/ExitAllActorsNode.cs"
+"Assets/VN Engine/Scripts/Nodes/FlipActorFacingNode.cs"
+"Assets/VN Engine/Scripts/Nodes/LoadSceneNode.cs"
+"Assets/VN Engine/Scripts/Nodes/MoveActorInwardsNode.cs"
+"Assets/VN Engine/Scripts/Nodes/MoveActorOutwardsNode.cs"
+"Assets/VN Engine/Scripts/Nodes/Node.cs"
+"Assets/VN Engine/Scripts/Nodes/NodeTemplate.cs"
+"Assets/VN Engine/Scripts/Nodes/PlaySoundEffectNode.cs"
+"Assets/VN Engine/Scripts/Nodes/PlaySoundNode.cs"
+"Assets/VN Engine/Scripts/Nodes/PlayVoiceNode.cs"
+"Assets/VN Engine/Scripts/Nodes/SetActiveGameobjectNode.cs"
+"Assets/VN Engine/Scripts/Nodes/SetBackground.cs"
+"Assets/VN Engine/Scripts/Nodes/SetBackgroundTransparent.cs"
+"Assets/VN Engine/Scripts/Nodes/SetMusicNode.cs"
+"Assets/VN Engine/Scripts/Nodes/WaitNode.cs"
+"Assets/VN Engine/Scripts/Pause.cs"
+"Assets/VN Engine/Scripts/SceneManager.cs"
+"Assets/VN Engine/Scripts/SetActiveOnAwake.cs"
+"Assets/VN Engine/Scripts/UIManager.cs"
+"Assets/VN Engine/Scripts/VNProperties.cs"
+Assets/WeaponManager.cs
+-r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.Runtime.Serialization.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.Linq.dll"
