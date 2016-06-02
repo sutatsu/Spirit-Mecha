@@ -104,6 +104,7 @@ Assets/UpdateVariableOfText.cs
 "Assets/VN Engine/Scripts/GameScripts/UnitClass.cs"
 "Assets/VN Engine/Scripts/GameScripts/Weapon.cs"
 "Assets/VN Engine/Scripts/GameScripts/WeaponClass.cs"
+"Assets/VN Engine/Scripts/MiniUnityScript.cs"
 "Assets/VN Engine/Scripts/Nodes/BrightenActorNode.cs"
 "Assets/VN Engine/Scripts/Nodes/BrightenAllActorsNode.cs"
 "Assets/VN Engine/Scripts/Nodes/BringActorBackwardNode.cs"

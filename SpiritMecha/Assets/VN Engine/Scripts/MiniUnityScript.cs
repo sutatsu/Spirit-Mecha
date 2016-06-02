@@ -10,10 +10,13 @@ public class MinyUnityScript : MonoBehaviour {
 	 * how far to go. Therefore, this script only needs to maintain functions for moving, including
 	 * how far they move. And a death script which removes it from play.
 	 */
+	private Rigidbody2D rBody;
+//	public GameControllerScript gameCont;
 
 	// Use this for initialization
 	void Start () {
-
+		rBody = this.GetComponent<Rigidbody2D> ();
+//		gameCont = GameObject.Find ("GameController");
 	}
 
 	// Update is called once per frame
@@ -21,17 +24,17 @@ public class MinyUnityScript : MonoBehaviour {
 
 	}
 
-	protected void gainLeftVelocity(float speed)
+	public void gainLeftVelocity(float speed)
 	{
-		
+		rBody.velocity = new Vector2 (-speed, 0);
 	}
 
-	protected void gainRightVelocity(float speed)
+	public void gainRightVelocity(float speed)
 	{
-
+		rBody.velocity = new Vector2 (speed, 0);
 	}
 
-	private void loseVelocity()
+	public void loseVelocity()
 	{
 	}
 

@@ -12,10 +12,22 @@ public class KataiScript : UnitClass {
 	public WeaponClass WeaponShoulderPrefab;
 	public WeaponClass WeaponBackPrefab;
 
+	public bool LINEBREAK0;
+
+	public ThrusterClass ThrusterPrefab;
+	public ThrusterClass thrusters;
+
 	protected WeaponClass WeaponMainArm;
 	protected WeaponClass WeaponSupportArm;
 	protected WeaponClass WeaponShoulder;
 	protected WeaponClass WeaponBack;
+
+
+//	public float SpeedWildburn;
+//	public float SpeedOverburn;
+//	public float SpeedFullburn;
+//	public float SpeedHalfburn;
+//	public float SpeedCrawlingburn;
 
 	void Awake(){
 
@@ -27,6 +39,7 @@ public class KataiScript : UnitClass {
 		WeaponShoulderPrefab = weaponManager.ShoulderSetter;
 		WeaponBackPrefab = weaponManager.BackSetter;
 
+
 		//instantiate weapons
 		if (WeaponMainArmPrefab != null)
 			WeaponMainArm = Instantiate (WeaponMainArmPrefab);
@@ -37,6 +50,7 @@ public class KataiScript : UnitClass {
 		if (WeaponBackPrefab != null)
 			WeaponBack = Instantiate (WeaponBackPrefab);
 	
+
 	}
 
 	// Use this for initialization
@@ -60,6 +74,9 @@ public class KataiScript : UnitClass {
 		WeaponBack.transform.localPosition = WeaponBackPrefab.transform.localPosition;
 
 		//Only Katai should maintain their 4 weapons sprites holder thing
+
+		//get movement speeds from thrusters
+		thrusters = Instantiate(ThrusterPrefab);
 	}
 	
 	// Update is called once per frame
@@ -79,6 +96,19 @@ public class KataiScript : UnitClass {
 	}
 	public WeaponClass getBack(){
 		return WeaponBack;
+	}
+
+	public void setSpeedOverburn(){
+		moveSpeed = 1.5f*thrusters.moveSpeed;
+		moveCost = 2f * thrusters.energyCost;
+	}
+	public void setSpeedFullburn(){
+		moveSpeed = thrusters.moveSpeed;
+		moveCost = thrusters.energyCost;
+	}
+	public void setSpeedHalfburn(){
+		moveSpeed = 0.75f*thrusters.moveSpeed;
+		moveCost = 0.5f * thrusters.energyCost;
 	}
 
 }

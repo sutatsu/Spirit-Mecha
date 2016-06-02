@@ -17,6 +17,14 @@ public class UnitClass : MonoBehaviour {
 	public float health;
 	public float healthMax;
 
+	public float moveSpeed;
+	public float moveCost;
+	public float weight;
+
+	public float energy;
+	public float energyMax;
+	public float energyGen;
+
 	//Reference to itself
 	//public UnitClass itselfPrefab;
 	//Reference to an instance of itself?

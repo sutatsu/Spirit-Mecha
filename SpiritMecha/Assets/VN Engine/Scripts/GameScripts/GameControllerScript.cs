@@ -54,6 +54,12 @@ public class GameControllerScript : MonoBehaviour {
 	private WeaponClass WeaponShoulder;
 	private WeaponClass WeaponBack;
 
+	public MiniKataiScript miniKataiPrefab;
+	public MiniKataiScript miniKatai;
+//	private List<MiniEnemyScript> miniEnemyList;
+
+	public bool LINEBREAK4;
+
 
 	//Lists that hold all damage received in individual units, and carry out the damage of each individual
 	//strike every 0.1 seconds (potentially in the future with a scaling number, faster if there's too many
@@ -72,6 +78,7 @@ public class GameControllerScript : MonoBehaviour {
 		//Assign Katai and Enemies instances from prefabs
 		kataiInstance = Instantiate (KataiPrefab);
 		//enemyInstance = Instantiate (EnemyPrefab);
+		miniKatai = Instantiate (miniKataiPrefab);
 
 
 		//Populate Katai's instance with Weapons
@@ -90,6 +97,8 @@ public class GameControllerScript : MonoBehaviour {
 		//Not very scalable. Is loading a Unity Level smarter? Probably. Therefore GameController
 		//should maintain a list of all the enemies it needs to spawn.
 		enemiesToSpawnList = new List<TestTankScript>();
+
+		//should also maintain a list of all miniEnemies and miniKatai?
 
 	}
 	
@@ -266,4 +275,26 @@ public class GameControllerScript : MonoBehaviour {
 			}
 		}
 	}
+
+	//BUTTON PRESSES FOR MOVEMENT
+	public void setSpeedOverburn(){
+		kataiInstance.setSpeedOverburn();
+	}
+	public void setSpeedFullburn(){
+		kataiInstance.setSpeedFullburn ();
+	}
+
+	public void setSpeedHalfburn(){
+		kataiInstance.setSpeedHalfburn();
+	}
+
+	public void movementRight(){
+		miniKatai.gainRightVelocity (kataiInstance.moveSpeed);
+	}
+
+	public void movementLeft(){
+		miniKatai.gainLeftVelocity (kataiInstance.moveSpeed);
+
+	}
+
 }
