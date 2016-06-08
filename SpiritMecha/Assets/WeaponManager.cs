@@ -10,31 +10,31 @@ public class WeaponManager : MonoBehaviour {
 	*/
 
 	//Four WeaponClass variables which will be querried by Katai on its Start.
-	public WeaponClass MainArmSetter;
-	public WeaponClass SupportArmSetter;
-	public WeaponClass ShoulderSetter;
-	public WeaponClass BackSetter;
+	public WeaponClass ASetter;
+	public WeaponClass WSetter;
+	public WeaponClass DSetter;
+	public WeaponClass SSetter;
 
-	public Text MainArmText;
-	public Text SupportArmText;
-	public Text ShoulderText;
-	public Text BackText;
+	public Text AText;
+	public Text WText;
+	public Text DText;
+	public Text SText;
 
-	public void changeMainArm(WeaponClass newWeapon){
-		MainArmSetter = newWeapon;
-		setText (MainArmText, newWeapon.weaponName);
+	public void changeA(WeaponClass newWeapon){
+		ASetter = newWeapon;
+		setText (AText, newWeapon.weaponName);
 	}
-	public void changeSupportArm(WeaponClass newWeapon){
-		SupportArmSetter = newWeapon;
-		setText (SupportArmText, newWeapon.weaponName);
+	public void changeW(WeaponClass newWeapon){
+		WSetter = newWeapon;
+		setText (WText, newWeapon.weaponName);
 	}
-	public void changeShoulder(WeaponClass newWeapon){
-		ShoulderSetter = newWeapon;
-		setText (ShoulderText, newWeapon.weaponName);
+	public void changeD(WeaponClass newWeapon){
+		DSetter = newWeapon;
+		setText (DText, newWeapon.weaponName);
 	}
-	public void changeBack(WeaponClass newWeapon){
-		BackSetter = newWeapon;
-		setText (BackText, newWeapon.weaponName);
+	public void changeS(WeaponClass newWeapon){
+		SSetter = newWeapon;
+		setText (SText, newWeapon.weaponName);
 	}
 
 	private void setText(Text buttonText, string s){

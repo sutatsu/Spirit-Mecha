@@ -17,10 +17,10 @@ public class GameControllerScript : MonoBehaviour {
 	 * Katai needs guns to shoot, let's give her guns.
 	 */
 
-	public CountdownTimer ButtonMainArm;
-	public CountdownTimer ButtonSupportArm;
-	public CountdownTimer ButtonShoulder;
-	public CountdownTimer ButtonBack;
+//	public CountdownTimer ButtonMainArm;
+//	public CountdownTimer ButtonSupportArm;
+//	public CountdownTimer ButtonShoulder;
+//	public CountdownTimer ButtonBack;
 
 	public bool LINEBREAK;
 
@@ -47,8 +47,6 @@ public class GameControllerScript : MonoBehaviour {
 	public TestTankScript enemyInstance; //The target of Katai's weapons
 	public List<TestTankScript> enemyList;
 
-	public float damageListTimer = 0.1f;
-
 	private WeaponClass WeaponMainArm;
 	private WeaponClass WeaponSupportArm;
 	private WeaponClass WeaponShoulder;
@@ -60,14 +58,7 @@ public class GameControllerScript : MonoBehaviour {
 
 	public bool LINEBREAK4;
 
-
-	//Lists that hold all damage received in individual units, and carry out the damage of each individual
-	//strike every 0.1 seconds (potentially in the future with a scaling number, faster if there's too many
-	private List<float> playerDamageReceiveList;
-	private List<float> enemyDamageReceiveList;
-	private bool damageListsInvoked = false;
-
-	public List<TestTankScript> enemiesToSpawnList;
+//	public List<TestTankScript> enemiesToSpawnList;
 
 	private bool fightWon = false;
 
@@ -75,51 +66,17 @@ public class GameControllerScript : MonoBehaviour {
 	//Use this for initialization
 	//Because it's all in Start I can start with the GameController OFF!!! YAY!~
 	void Start () {
-		//Assign Katai and Enemies instances from prefabs
-		kataiInstance = Instantiate (KataiPrefab);
-		//enemyInstance = Instantiate (EnemyPrefab);
+		//Assign Katai instances from prefabs
+//		kataiInstance = Instantiate (KataiPrefab);
 		miniKatai = Instantiate (miniKataiPrefab);
 
-
 		//Populate Katai's instance with Weapons
-		WeaponMainArm = kataiInstance.getMainArm ();
-		WeaponSupportArm = kataiInstance.getSupportArm ();
-		WeaponShoulder = kataiInstance.getShoulder ();
-		WeaponBack = kataiInstance.getBack ();
-
-
-		//create new damage receive lists for managing iterative damage
-		playerDamageReceiveList = new List<float>();
-		enemyDamageReceiveList = new List<float>();
-
-		//Check what level the player is on and then load that shit
-		//We can Ressources Load but what's the point? Just load from prefabs already in the level?
-		//Not very scalable. Is loading a Unity Level smarter? Probably. Therefore GameController
-		//should maintain a list of all the enemies it needs to spawn.
-		enemiesToSpawnList = new List<TestTankScript>();
-
-		//should also maintain a list of all miniEnemies and miniKatai?
 
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		//while there is no enemy, bring in the next one
-		if (enemyInstance == null) {
-			assignNewTarget ();
-		}
-	
-		//constantly update EnemyHealthBar to reflect Enemy.health
-		if (enemyInstance != null) {
-			EnemyHealthBar.SetFloat ("Blend", (enemyInstance.health / enemyInstance.healthMax));
-			enemyTextToUpdate.variable = enemyInstance.health;
-		}
-
-		//handle damage receive lists every 0.1 seconds
-		if (!damageListsInvoked) {
-			damageListsInvoked = true;
-			Invoke ("handleDamageLists", damageListTimer);
-		}
+	void FixedUpdate () {
+		manageInput ();
 	}
 
 
@@ -130,102 +87,33 @@ public class GameControllerScript : MonoBehaviour {
 	}
 
 	private void MainArmInvoke(){
-		if (ButtonMainArm != null) {
-			if (!ButtonMainArm.isTriggered ()) { //Appeals to CountdownTimer
-				ButtonMainArm.setTimer (WeaponMainArm.cooldown); //Sets Countdown Timer
-				//fireWeapon returns a list of how much damage each hit did.
-				foreach (float f in WeaponMainArm.fireWeapon()) { //BREAD AND BUTTER OCCURS HERE //////////
-					//TODO: create a floating text object with damage contained within it.
-					Debug.Log ("Main Arm Dealt: " + f + " Damage");
-
-					//Store each hit in a list that continually chops away every 0.1 second
-					enemyDamageReceiveList.Add (f);
-				}
-				Debug.Log ("");
-			}
-		}
+//		if (ButtonMainArm != null) {
+//			if (!ButtonMainArm.isTriggered ()) { //Appeals to CountdownTimer
+//				ButtonMainArm.setTimer (WeaponMainArm.cooldown); //Sets Countdown Timer
+//				//fireWeapon returns a list of how much damage each hit did.
+//				foreach (float f in WeaponMainArm.fireWeapon()) { //BREAD AND BUTTER OCCURS HERE //////////
+//					//TODO: create a floating text object with damage contained within it.
+//					Debug.Log ("Main Arm Dealt: " + f + " Damage");
+//
+//					//Store each hit in a list that continually chops away every 0.1 second
+//					enemyDamageReceiveList.Add (f);
+//				}
+//				Debug.Log ("");
+//			}
+//		}
 	}
 
 	public void inputSupportArm(){
 		Invoke ("SupportArmInvoke", WeaponSupportArm.hitDelay);
 	}
 
-	private void SupportArmInvoke(){
-		if (ButtonSupportArm != null) {
-			if (!ButtonSupportArm.isTriggered ()) { //Appeals to CountdownTimer
-				ButtonSupportArm.setTimer (WeaponSupportArm.cooldown); //Sets Countdown Timer
-				//fireWeapon returns a list of how much damage each hit did.
-				foreach (float f in WeaponSupportArm.fireWeapon()) { //BREAD AND BUTTER OCCURS HERE //////////
-					//TODO: create a floating text object with damage contained within it.
-					Debug.Log ("Support Arm Dealt: " + f + " Damage");
-
-					//Store each hit in a list that continually chops away every 0.1 second
-					enemyDamageReceiveList.Add (f);
-				}
-				Debug.Log ("");
-			}
-		}
-	}
-
 	public void inputShoulder(){
 		Invoke ("ShoulderInvoke", WeaponShoulder.hitDelay);
-	}
-
-	private void ShoulderInvoke(){
-		if (ButtonShoulder != null) {
-			if (!ButtonShoulder.isTriggered ()) { //Appeals to CountdownTimer
-				ButtonShoulder.setTimer (WeaponShoulder.cooldown); //Sets Countdown Timer
-				//fireWeapon returns a list of how much damage each hit did.
-				foreach (float f in WeaponShoulder.fireWeapon()) { //BREAD AND BUTTER OCCURS HERE //////////
-					//TODO: create a floating text object with damage contained within it.
-					Debug.Log ("Shoulder Dealt: " + f + " Damage");
-
-					//Store each hit in a list that continually chops away every 0.1 second
-					enemyDamageReceiveList.Add (f);
-				}
-				Debug.Log ("");
-			}
-		}
 	}
 
 	public void inputBack(){
 		Invoke ("BackInvoke", WeaponBack.hitDelay);
 	}
-
-	private void BackInvoke(){
-		if (ButtonBack != null) {
-			if (!ButtonBack.isTriggered ()) { //Appeals to CountdownTimer
-				ButtonBack.setTimer (WeaponBack.cooldown); //Sets Countdown Timer
-				//fireWeapon returns a list of how much damage each hit did.
-				foreach (float f in WeaponBack.fireWeapon()) { //BREAD AND BUTTER OCCURS HERE //////////
-					//TODO: create a floating text object with damage contained within it.
-					Debug.Log ("Back Dealt: " + f + " Damage");
-
-					//Store each hit in a list that continually chops away every 0.1 second
-					enemyDamageReceiveList.Add (f);
-				}
-				Debug.Log ("");
-			}
-		}
-	}
-
-	//Here is where the damage list for the enmy is handled, if we replace the enemyInstance
-	//we can create a line of enemies.
-	private void handleDamageLists(){
-		if(enemyDamageReceiveList.Count > 0 && enemyInstance != null){
-			//Cause floating number over enemy
-			createFloatingNumber(enemyDamageReceiveList[0]);
-			enemyInstance.reduceHealth(enemyDamageReceiveList[0]);
-			enemyDamageReceiveList.RemoveAt (0);
-			//Cause enemy to flash
-			enemyInstance.getHit();
-		}
-		damageListsInvoked = false;
-	}
-
-//	IEnumerator handleDamageLists(List<float> goodDamageList, List<float> badDamageList){
-//		float 
-//	}
 
 	//Due to the nature of creating enemies and Katai at runtime,
 	//it is necessary to hold functions for modifying dem fuckers here.
@@ -276,6 +164,39 @@ public class GameControllerScript : MonoBehaviour {
 		}
 	}
 
+
+	private void manageInput(){
+		if(Input.GetKey("a")){
+			//go left
+			movementLeft();
+		}
+		if(Input.GetKey("w")){
+			//go up
+			movementUp();
+		}
+		if(Input.GetKey("d")){
+			//go right
+			movementRight();
+		}
+		if(Input.GetKey("s")){
+			//go down
+			movementDown();
+		}
+
+		if(Input.GetKey("j")){
+			//use weapon j
+		}
+		if(Input.GetKey("i")){
+			//use weapon i
+		}
+		if(Input.GetKey("l")){
+			//use weapon l
+		}
+		if(Input.GetKey("k")){
+			//use weapon k
+		}
+	}
+
 	//BUTTON PRESSES FOR MOVEMENT
 	public void setSpeedOverburn(){
 		kataiInstance.setSpeedOverburn();
@@ -291,10 +212,14 @@ public class GameControllerScript : MonoBehaviour {
 	public void movementRight(){
 		miniKatai.gainRightVelocity (kataiInstance.moveSpeed);
 	}
-
 	public void movementLeft(){
 		miniKatai.gainLeftVelocity (kataiInstance.moveSpeed);
-
+	}
+	public void movementUp(){
+		miniKatai.gainRightVelocity (kataiInstance.moveSpeed*0.8f);
+	}
+	public void movementDown(){
+		miniKatai.gainLeftVelocity (kataiInstance.moveSpeed*0.8f);
 	}
 
 }

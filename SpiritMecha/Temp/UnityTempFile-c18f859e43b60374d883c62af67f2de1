@@ -138,6 +138,7 @@ Assets/UpdateVariableOfText.cs
 "Assets/VN Engine/Scripts/Pause.cs"
 "Assets/VN Engine/Scripts/SceneManager.cs"
 "Assets/VN Engine/Scripts/SetActiveOnAwake.cs"
+"Assets/VN Engine/Scripts/ThrusterClass.cs"
 "Assets/VN Engine/Scripts/UIManager.cs"
 "Assets/VN Engine/Scripts/VNProperties.cs"
 Assets/WeaponManager.cs

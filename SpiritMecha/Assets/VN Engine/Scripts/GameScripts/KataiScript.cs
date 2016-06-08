@@ -7,20 +7,20 @@ public class KataiScript : UnitClass {
 	public WeaponManager weaponManager;
 
 	//weapons with which to do things
-	public WeaponClass WeaponMainArmPrefab;
-	public WeaponClass WeaponSupportArmPrefab;
-	public WeaponClass WeaponShoulderPrefab;
-	public WeaponClass WeaponBackPrefab;
+	public WeaponClass WeaponAPrefab;
+	public WeaponClass WeaponWPrefab;
+	public WeaponClass WeaponDPrefab;
+	public WeaponClass WeaponSPrefab;
 
 	public bool LINEBREAK0;
 
 	public ThrusterClass ThrusterPrefab;
 	public ThrusterClass thrusters;
 
-	protected WeaponClass WeaponMainArm;
-	protected WeaponClass WeaponSupportArm;
-	protected WeaponClass WeaponShoulder;
-	protected WeaponClass WeaponBack;
+	protected WeaponClass WeaponA;
+	protected WeaponClass WeaponW;
+	protected WeaponClass WeaponD;
+	protected WeaponClass WeaponS;
 
 
 //	public float SpeedWildburn;
@@ -34,21 +34,21 @@ public class KataiScript : UnitClass {
 		instantiateAwake ();
 
 		weaponManager = GameObject.Find ("WeaponManagerContainer").GetComponent<WeaponManager>();
-		WeaponMainArmPrefab = weaponManager.MainArmSetter;
-		WeaponSupportArmPrefab = weaponManager.SupportArmSetter;
-		WeaponShoulderPrefab = weaponManager.ShoulderSetter;
-		WeaponBackPrefab = weaponManager.BackSetter;
+		WeaponAPrefab = weaponManager.ASetter;
+		WeaponWPrefab = weaponManager.WSetter;
+		WeaponDPrefab = weaponManager.DSetter;
+		WeaponSPrefab = weaponManager.SSetter;
 
 
 		//instantiate weapons
-		if (WeaponMainArmPrefab != null)
-			WeaponMainArm = Instantiate (WeaponMainArmPrefab);
-		if (WeaponSupportArmPrefab != null)
-			WeaponSupportArm = Instantiate (WeaponSupportArmPrefab);
-		if (WeaponShoulderPrefab != null)
-			WeaponShoulder = Instantiate (WeaponShoulderPrefab);
-		if (WeaponBackPrefab != null)
-			WeaponBack = Instantiate (WeaponBackPrefab);
+		if (WeaponAPrefab != null)
+			WeaponA = Instantiate (WeaponAPrefab);
+		if (WeaponWPrefab != null)
+			WeaponW = Instantiate (WeaponWPrefab);
+		if (WeaponDPrefab != null)
+			WeaponD = Instantiate (WeaponDPrefab);
+		if (WeaponSPrefab != null)
+			WeaponS = Instantiate (WeaponSPrefab);
 	
 
 	}
@@ -61,17 +61,17 @@ public class KataiScript : UnitClass {
 		gameObject.transform.localPosition = new Vector3(0,0,20);
 
 		//Add weapons as children
-		WeaponMainArm.transform.parent = gameObject.transform;
-		WeaponMainArm.transform.localPosition = WeaponMainArmPrefab.transform.localPosition;
+		WeaponA.transform.parent = gameObject.transform;
+		WeaponA.transform.localPosition = WeaponAPrefab.transform.localPosition;
 
-		WeaponSupportArm.transform.parent = gameObject.transform;
-		WeaponSupportArm.transform.localPosition = WeaponSupportArmPrefab.transform.localPosition;
+		WeaponW.transform.parent = gameObject.transform;
+		WeaponW.transform.localPosition = WeaponWPrefab.transform.localPosition;
 
-		WeaponShoulder.transform.parent = gameObject.transform;
-		WeaponShoulder.transform.localPosition = WeaponShoulderPrefab.transform.localPosition;
+		WeaponD.transform.parent = gameObject.transform;
+		WeaponD.transform.localPosition = WeaponDPrefab.transform.localPosition;
 
-		WeaponBack.transform.parent = gameObject.transform;
-		WeaponBack.transform.localPosition = WeaponBackPrefab.transform.localPosition;
+		WeaponS.transform.parent = gameObject.transform;
+		WeaponS.transform.localPosition = WeaponSPrefab.transform.localPosition;
 
 		//Only Katai should maintain their 4 weapons sprites holder thing
 
@@ -84,18 +84,18 @@ public class KataiScript : UnitClass {
 	
 	}
 
-	//returns GameObject for WeaponMainArm
-	public WeaponClass getMainArm(){
-		return WeaponMainArm;
+	//returns GameObject for WeaponA
+	public WeaponClass getA(){
+		return WeaponA;
 	}
-	public WeaponClass getSupportArm(){
-		return WeaponSupportArm;
+	public WeaponClass getW(){
+		return WeaponW;
 	}
-	public WeaponClass getShoulder(){
-		return WeaponShoulder;
+	public WeaponClass getD(){
+		return WeaponD;
 	}
-	public WeaponClass getBack(){
-		return WeaponBack;
+	public WeaponClass getS(){
+		return WeaponS;
 	}
 
 	public void setSpeedOverburn(){

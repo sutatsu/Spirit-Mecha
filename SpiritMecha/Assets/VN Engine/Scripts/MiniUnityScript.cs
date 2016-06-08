@@ -12,6 +12,28 @@ public class MinyUnityScript : MonoBehaviour {
 	 */
 	private Rigidbody2D rBody;
 //	public GameControllerScript gameCont;
+//	private 
+
+	//Properties, Stats
+	public float health;
+	public float healthMax;
+
+	public float moveSpeed;
+	public float moveCost;
+	public float weight;
+
+	public float energy;
+	public float energyMax;
+	public float energyGen;
+
+	//animator
+	protected SpriteRenderer sprite;
+	protected Animator animator;
+
+	void Awake(){
+		sprite = this.GetComponentInChildren<SpriteRenderer>();
+		animator = this.GetComponentInChildren<Animator>();
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -37,5 +59,7 @@ public class MinyUnityScript : MonoBehaviour {
 	public void loseVelocity()
 	{
 	}
+
+
 
 }
